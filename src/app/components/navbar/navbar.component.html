@@ -1,0 +1,49 @@
+<div class="navbar pb-4">
+    <div class="flex justify-between md:mx-16 mx-8 items-center" style="margin-bottom: 10px;
+    border-bottom: 2px solid white;">
+        <span class="navbar-heading">ShopKart</span>
+        <div class="hidden md:flex">
+            <span class="navbar-text px-2">WISHLIST (0)</span>
+            <span class="navbar-text px-2">BAG (0)</span>
+        </div>
+        <div class="md:hidden">
+          <img src="../../../assets/images/{{ mobileMenuOpen ? 'cross-icon.png' : 'hamburger-menu.png' }}" alt="" (click)="toggleMenu()">
+
+            <!-- <img src="../../../assets/images/cross-icon.png" alt="" (click)="toggleMenu()"> -->
+        </div>
+    </div>
+
+
+    <div class="navItems md:flex md:mx-16 py-5 hidden md:block">
+      <div *ngFor="let item of navbar" class="navbar-item">
+        <div
+          class="nav-element md:mx-8"
+          [ngClass]="{
+            'hovered': hoveredItem === item,
+            'has-child': item.child
+          }"
+          (mouseenter)="setHoveredItem(item)"
+          (mouseleave)="clearHoveredItem()"
+        >
+          <div class="navbar-text-lg">{{ item.name | uppercase }}</div>
+          <div *ngIf="item.child" class="child-items">
+            <div ngClass="text-white" *ngFor="let childItem of item.child" class="child-item">
+              {{ childItem.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="mobileMenuOpen" class="mobile-menu block md:hidden pt-14">
+     <div *ngFor="let item of navbar" class="flex flex-col justify-around items-center">
+      <p class="text-white navbar-text-lg py-12 text-lg font-extrabold">{{item.name | uppercase}}</p>
+     </div>         
+    </div>
+
+      
+</div>
+
+<div class="block" *ngIf="!mobileMenuOpen">
+  <app-home-page></app-home-page>
+</div>

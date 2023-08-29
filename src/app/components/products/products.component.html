@@ -1,0 +1,66 @@
+<div class="products-container py-7 ps-2">
+  <div class="mobile-view md:hidden">
+    <h1 class="heading text-4xl">New products</h1>
+      <img class="mb-2" src="../../../assets/images/Line.png" alt="">
+    
+    <div class="flex justify-around">
+      <span>Apparel</span>
+      <span class="font-bold">Accessories</span>
+      <span>Best sellers</span>
+      <span>50% off</span>
+    </div>
+
+    <div class="product-wrapper flex overflow-hidden">
+      <div *ngFor="let product of products" class="product">
+        <img style="height: 322px; width: 310px;" src={{product.image}} alt="">
+       <span class="font-bold">{{ product.title | uppercase }}</span> 
+       <p class="text-gray-600 text-sm">{{product.description}}</p>
+       <p class="font-bold">$ 100</p>
+      </div>
+    </div>
+
+    <div class="flex mr-6" style="place-content: center;">
+      <img class="mr-2 cursor-pointer" src="../../../assets/images/left-arrow.png" alt="">
+      <img class="mr-2 cursor-pointer" src="../../../assets/images/right-arrow.png" alt="">
+    </div>
+    
+
+    </div>
+      
+      <div class="desktop-view hidden md:block">
+        <div class="flex justify-between mx-10">
+
+          <div>
+            <h1 class="heading text-7xl">New products</h1>
+            <img class="mb-2" src="../../../assets/images/Line.png" alt="">
+          </div>
+
+          <div>
+            <div class="flex mr-6">
+              <img class="mr-2 cursor-pointer" src="../../../assets/images/left-arrow.png" alt="">
+              <img class="mr-2 cursor-pointer" src="../../../assets/images/right-arrow.png" alt="">
+            </div>
+           
+          </div>
+        </div>
+
+
+        <div class="flex mx-3">
+          <div class="flex mx-7 flex-col ">
+            <span class="my-3 text-xl">Apparel</span>
+            <span class="font-bold my-3 text-xl">Accessories</span>
+            <span class="my-3 text-xl">Best sellers</span>
+            <span class="my-3 text-xl">50% off</span>
+          </div>
+          <div *ngFor="let product of desktop_products" class="product">
+            <img style="height: 322px; width: 310px;" src={{product.image}} alt="">
+           <span class="font-bold">{{ product.title | uppercase }}</span> 
+           <p class="text-gray-600 text-sm">{{product.description}}</p>
+           <p class="font-bold">$ 100</p>
+          </div>
+        </div>
+       
+    </div>
+</div>
+
+  
